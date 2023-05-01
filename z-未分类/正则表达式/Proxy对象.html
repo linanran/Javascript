@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //handler 捕捉器
+    const handler={
+        get:function(obj,prop){
+            return prop in obj ? obj[prop] : 37;
+        }
+    };
+    const p=new Proxy({},handler);
+    p.a=1;
+    p.b=undefined;
+    console.log(p.c);
+//代理会将所有应用到他的操作转发到这个对象上
+    let target = {};
+    let p2 = new Proxy(target, {});
+    let p3=new Proxy(target,{});
+    p2.a = 77;   // 操作转发到目标
+    p3.b=33;
+    console.log(target.a,target.b);    // 37. 操作已经被正确地转发
+//设置对象的值
+    let validator = {
+        set: function(obj, prop, value) {
+            if (prop === 'age') {
+                if (!Number.isInteger(value)) {
+                    throw new TypeError('The age is not an integer');
+                }
+                if (value > 200) {
+                    throw new RangeError('The age seems invalid');
+                }
+            }
+
+            // The default behavior to store the value
+            obj[prop] = value;
+
+            // 表示成功
+            return true;
+        }
+    };
+
+    let person = new Proxy({}, validator);
+
+    person.age = 100;
+
+    console.log(person.age);
+    // 100
+
+    person.age = 'young';
+    // 抛出异常: Uncaught TypeError: The age is not an integer
+
+    person.age = 300;
+    // 抛出异常: Uncaught RangeError: The age seems invalid
+//扩展构造函数
+    function extend(sup, base) {
+        var descriptor = Object.getOwnPropertyDescriptor(
+            base.prototype, "constructor"
+        );
+        base.prototype = Object.create(sup.prototype);
+        var handler = {
+            construct: function(target, args) {
+                var obj = Object.create(base.prototype);
+                this.apply(target, obj, args);
+                return obj;
+            },
+            apply: function(target, that, args) {
+                sup.apply(that, args);
+                base.apply(that, args);
+            }
+        };
+        var proxy = new Proxy(base, handler);
+        descriptor.value = proxy;
+        Object.defineProperty(base.prototype, "constructor", descriptor);
+        return proxy;
+    }
+
+    var Person = function (name) {
+        this.name = name
+    };
+
+    var Boy = extend(Person, function (name, age) {
+        this.age = age;
+    });
+
+    Boy.prototype.sex = "M";
+
+    var Peter = new Boy("Peter", 13);
+    console.log(Peter.sex);  // "M"
+    console.log(Peter.name); // "Peter"
+    console.log(Peter.age);  // 13
+</script>
+
+</body>
+</html>

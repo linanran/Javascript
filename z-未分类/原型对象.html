@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型对象测试</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Person(){
+        this.firstname="lily"
+        this.myname=function (){
+            console.log(this.firstname);
+        }
+    }
+    var person1=new Person();
+    console.log(Person.prototype);
+</script>
+</html>

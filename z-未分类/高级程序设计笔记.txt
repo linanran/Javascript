@@ -1,0 +1,45 @@
+书籍1-4章内容
+1,文档模式
+    混杂模式、标准模式、准标准模式
+    ES5增加了严格模式，在js文件开头加上"use strict";或加载函数的第一行
+2，关键字与保留字
+    关键字：
+    break、case、catch、class、const、continue、debugger、default、delete、do、
+    else、export、extends、finally、for、function、if、import、in、instanceof、
+    new、return、switch、this、throw、try、typeof、var、void、while、with、yield
+    保留字：
+    boolean、byte、char、class、const、debugger、double、enum、export、extends、fimal、float、goto、implements、
+    import、int、interface、long、mative、package、private、protected、public、short、static、super、
+    synchronized、throws、transient、volatile
+    模块代码中的保留字：
+    await
+3，const
+    常量不可不赋值和重新赋值，但下面对象赋值是可以的。
+    const person = {};
+    person.name = 'Matt';  // ok
+4,let
+    let变量声明不会被提升
+    for (let i = 0; i < 5; ++i) {
+      setTimeout(() => console.log(i), 100)
+    }
+    // console.logs 0, 1, 2, 3, 4
+    js引擎在后台为每个迭代循环声明了一个新的迭代变量，每个setTimeout引用的都是不同的实例
+5，数据类型
+    6种原始类型：undefined、null、boolean、number、string、symbol-ES6新增 注意string是原始类型
+    1种复杂类型：object
+    typeof：确定数据类型，其中没有null类型，null为object类型。增加了function值，表示函数
+    instanceof：判断引用数据类型
+    constroctor判断引用类型
+6，特殊值NaN
+    表示原本要返回数值的操作失败了
+    判断：isNaN()
+7,数值转换
+    转换为布尔值：Boolean
+    转换为number：Number、parseFloat、parseInt、
+    转换为字符串：toString String()
+8，传参：传递的是对象的引用
+9，执行上下文，变量或函数的上下文决定了它们可以访问的数据和行为，每个上下文都有一个关联的变量对象
+10，作用域链：代码访问变量和函数的顺序
+    作用域连增强：try catch、with
+    with(对象名){}，表示该函数内使用的变量为该对象中的变量，即将该对象添加到作用域前端
+

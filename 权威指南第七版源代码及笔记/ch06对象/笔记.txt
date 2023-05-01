@@ -1,0 +1,69 @@
+对象
+疑问？
+    原型对象和实例对象的称呼问题？
+    设计工厂模式复习？
+    如果我创建一个对象A，实例化对象为B，添加属性，再实例化对象B，创建对象C，C是否能访问AB的属性与方法？
+1，对象的属性拥有三个属性特性
+    writable
+    enumerable
+    configurable
+2，创建对象
+    对象字面量
+        let book={};
+    new对象
+        创建和初始化对象
+    Object.create()
+        创建一个新的对象，使用第一个参数作为对象的原型
+        能够以任意原型创建新对象
+        可以防止被修改
+3，原型
+    原型对象、原型链
+    创建的对象中的从原型对象中继承的属性和方法
+4，设置与查询属性
+5，关联数组
+    object["property"]
+        js对象是关联数组
+6，继承
+    通过Object.create()方法
+7，属性访问错误
+    访问一个对象时，对象没有该属性，返回undefined
+    访问一个不存在对象的属性是会报错
+8，删除属性delet
+    delet A.name
+    只能删除自有属性
+    删除不可删除属性严格模式下会报错，非严格模式下会返回false
+    删除已有属性或不存在的属性都会返回true
+    删除全局变量，前面不需要跟对象名称，但在严格模式下会报错
+    delet globalThis.js
+9，测试属性
+    in操作符：是否拥有该属性或从原型对象中继承该属性
+    hasOwnProperty：本身是否有该属性，继承或没有会返回false
+    propertyIsEnumerable：是否可以枚举
+    o.x!==undefined ：是否存在该属性，但不能测试到已有却被设置为undefined的属性，需要配合in使用
+10，枚举属性
+    可以通过for in显示出来的属性，如果不能，则不能遍历到
+    默认所有的属性和方法都是可以枚举的，但不包括继承的属性和方法
+    Object.keys():返回对象自有所有属性名，不包含不可枚举的属性名
+    Object.getOwnPropertyNames():与keys相同，但可以返回不可枚举的属性名，只要他们的名称为字符串
+    Object.getOwnPropertySymbols:返回名称是符号的自有属性，无论是否可以枚举
+    Reflect.ownKeys():返回所有属性名，包括可枚举，不可枚举，符号属性
+11，属性枚举顺序
+    略
+12，扩展对象
+    复制某个对象
+    见深拷贝.js
+13，序列化对象:对象和字符串之间的转换
+    JSON.stringify()  将对象转换成字符串
+    JSON.parse 将字符串回复成对象
+14，通用对象方法
+    toString
+    toLocaleString
+    valueOf
+    toJson方法：JSON.stringify
+15，对象字面量扩展语法
+    简写属性：见代码
+    计算属性语法：见代码
+16，符号作为属性名
+    见Symbol.js
+17,扩展操作符 ...
+

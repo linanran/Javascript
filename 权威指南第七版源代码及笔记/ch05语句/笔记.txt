@@ -1,0 +1,33 @@
+1，表达式语句
+    某个操作
+2，复合句与空语句
+    代码块
+    空语句：一个单独的分号
+    for(let i=0; i< a.length; a[i++]=0);
+3,条件语句
+4，循环语句
+    while
+    do while
+    for
+    es6新增 for-of
+        用于迭代可迭代数据
+    for in
+        迭代对象
+    for wait
+        2018新增，异步迭代
+5，跳转语句
+    break
+    continue
+    return
+    yield
+        es6新增，用于生成器函数中，以回送生成的值序列中的下一个值，同时又不会真正返回
+    throw
+    try catch
+    with
+        指定对象，则带该代码块中作用域为该对象的作用域
+    debugger
+        执行某种调试操作
+    "use strict"
+        严格模式
+    let const var function  class import export
+        声明语句

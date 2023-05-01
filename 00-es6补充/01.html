@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>首先是为什么出现let和const</h3>
+var为js设计之初的缺陷，因为它没有局部作用域，只有函数作用域。为了解决这个缺陷，所以推出了let和const属性
+推荐使用这两个属性而不是var
+####   const为常量，赋值后不可以改变，如果赋值的内容为对象，那么该对象的指向不可以发生变化，指向的内容可以改变
+####    const不可以声明，必须在定义的时候给值
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+
+<h3>es6的增强写法</h3>
+
+<script>
+    var btns=document.getElementsByTagName("button");
+    // for(var i = 0; i < btns.length; i++){
+    //     btns[i].addEventListener('click',function(){
+    //         console.log("按了第" + i + "个按钮");
+    //     })
+    // }
+    // 解决办法1：原因：函数是一个作用域
+    // for(var i = 0; i < btns.length; i++){
+    //     (function(m){btns[m].addEventListener('click',function(){
+    //         console.log("按了第" + m + "个按钮");
+    //     })
+    //     })(i);
+    // }
+//    解决办法2：let有自己的作用域
+//     for(let i = 0; i < btns.length; i++){
+//         btns[i].addEventListener('click',function(){
+//             console.log("按了第" + i + "个按钮");
+//         })
+//     }
+//    es6的增强写法
+//    这里的括号为字面量
+//    1.对象的字面量写法的增强
+    const m="abc";
+    const n=224;
+        const a={m,n};
+//    2，对象中函数写法的增强
+    const b={
+        //之前的写法
+        test:function (){
+
+        },
+    //    增强之后的写法
+        test2(){
+
+        }
+    }
+</script>
+</body>
+</html>

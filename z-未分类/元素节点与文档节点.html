@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    来源：
+        Node对象中包含两个方法，parentNode、parentElement
+    两者的区别是什么？
+    一个是父元素节点，一个是父文档节点
+    元素接地那和文档节点的区别是什么？
+    <div id="parent">
+        parent
+        <p id="child">
+            child
+        </p>
+    </div>
+</body>
+<script>
+    var dom=document.getElementById("parent");
+        console.log("parent的parentNode",dom.parentNode.parentNode.parentNode);
+        console.log("parent的parentElement",dom.parentElement.parentElement.parentElement);
+    // var child=document.getElementById("child");
+    // console.log("child的parentNode",child.parentNode);
+    // console.log("child的parentElement",child.parentElement);
+</script>
+</html>

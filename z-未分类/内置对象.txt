@@ -1,0 +1,42 @@
+1，对象的基本概念
+    对象定义：创建对象
+    定义对象的实例：对象或某某对象的实例
+    标准内置对象：不用自己定义的对象，为ECMScript自带的对象，不包含dom和bom
+    单例内置对象：
+        在 ECMAScript 程序执行之前就已经存在了的对象。且已经实例化的对象。
+        全局创建的属性和方法，即匿名函数和var创建的属性
+        ECMAScript定义了两个内置对象：Global和Math
+    单例内置对象与标准内置对象？
+        前者属于后者，后者不属于前者。
+3，Global对象包含的内容：属性
+    特殊值及方法：
+        Infinity
+        NaN
+        undefined
+        isNaN()
+        isFinite()
+        parseInt()
+        parseFloat()
+        URI编码方法
+        encodeURI()
+        encodeURIComponent()
+        eval():执行js代码
+    原生引用类型及其他构造函数
+        Object
+        Array
+        Function！！！
+        Boolean
+        String
+        Number
+        Date
+        RegExp
+        Symbol
+        Error
+        EvalError
+        RangeError
+        ReferenceError
+        TypeError
+        URIError
+4，window对象和Global对象的关系
+    为Global对象的代理，因此上述的属性和方法都可以通过window对象访问，window对象还有Global对象以外的内容，详见window对象
+5，Math

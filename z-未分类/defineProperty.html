@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj={};
+    Object.defineProperty(obj,'property1',{
+        value:42,
+        writable:false
+    });
+    //设置了可更改属性(writable)为false，因此下面的设置无效
+    obj.property1=77;
+    console.log(obj.property1);//42
+</script>
+</body>
+</html>

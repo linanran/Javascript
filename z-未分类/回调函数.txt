@@ -1,0 +1,35 @@
+1，回调函数：
+
+被当成参数进行传递，满足某种条件后被调用的函数
+
+至少有3中类型的函数
+
+- 主函数：相当于整个程序的引擎，调度各个函数按序执行
+- 回调函数：一个独立的功能函数，如写文件函数
+- 中间函数：一个介于主函数和回调函数之间的函数，调用回调函数，通知主函数，起到一个桥梁的作用
+
+你到一个商店买东西，告诉商家货物名称、你的电话、以及没有货怎么处理，于是商店就去仓库找你的货物，找到了就给你货物,如果仓库没有就去调货，如果没有却调到了货物，就通知你来取。
+
+```jsx
+//回调函数
+function callPhone(phoneNumber,message){
+	return "打电话给："+phoneNumber+"并通知："+message;
+}
+//中间函数
+function buy(something，phone,dosomething){
+	var wuping=find(something);
+	if(wuping){
+		return wuping;
+	}else if(diaohuo(wuping)){
+		return dosomething(phone,"已调到货物，来取");
+	}else{
+		return dosomething(phone,"商品无货且调货失败")
+	}
+//主函数
+var result=buy("jiangyou","17818528705",callPhone);
+
+```
+
+采用这种方式调用buy，我们把同步操作变成了异步操作，buy不会阻塞程序运行
+
+回调函数是异步编程最基本的方法

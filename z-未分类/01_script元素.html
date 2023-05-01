@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+// <!--   。。。js代码-->
+    </script>
+    <!--    defer：立即下载，延迟执行 -->
+    <script defer src="DataTypes/TheBooleanTypeExample01.js" type="text/javascript"/>
+    <!--    async:立即下载脚本，脚本可用时立即异步执行 ,不能保证脚本的执行次序-->
+    <script async src="DataTypes/TheBooleanTypeExample01.js" type="text/javascript"></script>
+</head>
+<body>
+<!--   页面加载结束后下载与执行-->
+<script src="DataTypes/TheBooleanTypeExample01.js" type="text/javascript"></script>
+<script>
+    /*
+    动态加载脚本
+     */
+    let script = document.createElement('script');
+    script.src = 'gibberish.js';
+    document.head.appendChild(script);
+
+    let script = document.createElement('script');
+    script.src = 'gibberish.js';
+    script.async = false;
+    document.head.appendChild(script);
+</script>
+</body>
+</html>

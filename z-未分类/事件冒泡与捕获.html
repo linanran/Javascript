@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            padding: 5px;
+            background-color: palegoldenrod;
+        }
+        p{
+            padding:5px;
+            border:1px red solid;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">
+            p1
+        </p>
+    </div>
+    <div id="div2">
+        <p id="p2">
+            p2
+        </p>
+    </div>
+</body>
+<script>
+    var div1=document.getElementById("div1");
+    var div2=document.getElementById("div2");
+    var p1=document.getElementById("p1");
+    var p2=document.getElementById("p2");
+//false为默认值，冒泡传递
+    div1.addEventListener("click",function (){
+        alert("点击了div1");
+    },false);
+    p1.addEventListener("click",function(){
+        alert("点击了p1");
+    },false)
+    //true为捕获传递
+    div2.addEventListener("click",function (){
+        alert("点击了div2");
+    },true);
+    p2.addEventListener("click",function(){
+        alert("点击了p2");
+    },true)
+</script>
+</html>

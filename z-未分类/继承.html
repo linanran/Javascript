@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//原型链继承
+    function Parent1() {
+        this.name = 'parent1';
+        this.play = [1, 2, 3]
+    }
+    function Child1() {
+        this.type = 'child2';
+    }
+    Child1.prototype = new Parent1();
+    var child=new Child1();
+    var parent=new Parent1();
+
+    // console.log(child);
+    // console.log(parent)
+    // console.log(new Child1());
+//构造函数继承
+    function Parent2(){
+        this.name = 'parent1';
+        this.play=[1,2,3]
+    }
+    Parent2.prototype.getName = function () {
+        return this.name;
+    }
+
+    function Child2(){
+        Parent2.call(this);
+        this.type = 'child1'
+    }
+    let c=new Parent2();
+    let child2 = new Child2();
+    child2.play.push(4);
+    // console.log(child2);  // 没问题
+    // console.log(c);
+//原型式继承
+    let parent4 = {
+
+        name: "parent4",
+
+        friends: ["p1", "p2", "p3"],
+
+        getName: function() {
+
+            return this.name;
+
+        }
+
+    };
+    let person4=Object.create(parent4);
+    person4.name="hhh";
+    person4.friends.push("test");
+    // console.log(parent4.friends);
+    // console.log(parent4.getName());
+    // console.log(person4.friends);
+    // console.log(person4.getName());
+
+    // let person4 = Object.create(parent4);
+    // let person5 = Object.create(parent4);
+    //
+    // person4.friends.push("jerry");
+    // person4.name="ttt";
+    // person5.friends.push("lucy");
+    // console.log(person4.getName());
+    // console.log(person5.getName());
+    // console.log(person4.friends);
+    // console.log(person5.friends);
+//寄生组合式继承
+function Parent6() {
+
+    this.name = 'parent6';
+
+    this.play = [1, 2, 3];
+
+}
+
+Parent6.prototype.getName = function () {
+
+    return this.name;
+
+}
+
+function Child6() {
+
+    Parent6.call(this);
+
+    this.friends = 'child5';
+
+}
+let p6=function (){
+    this.name = 'parent6';
+
+    this.play = [1, 2, 3];
+}
+console.log(p6);
+console.log(p6.prototype);
+console.log(Parent6);
+console.log(Parent6.prototype);
+// console.log(Child6.prototype);
+// Child6.prototype = Object.create(Parent6.prototype);
+//
+// Child6.prototype.constructor = Child6;
+//
+// Child6.prototype.getFriends = function () {
+//
+//     return this.friends;
+//
+// }
+//
+// let person6 = new Child6();
+
+// console.log(person6);
+//
+// console.log(person6.getName());
+//
+// console.log(person6.getFriends());
+
+
+
+
+</script>
+</body>
+</html>
